@@ -14,7 +14,8 @@ public class Task1 {
             x2 = (-b - Math.sqrt(D))/(2 * a);
             System.out.println("x1 = " + x1 + "; x2 = " + x2);
         }
-        else
+        else {
             System.out.println("There are no real roots");
+        }
     }
 }
