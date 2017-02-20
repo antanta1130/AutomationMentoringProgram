@@ -1,7 +1,7 @@
-package tasks;
+package com.tasks;
 
-import tasks.solvers.EquationSolver;
-import tasks.solvers.QuadraticEquationSolver;
+import com.tasks.solvers.EquationSolver;
+import com.tasks.solvers.QuadraticEquationSolver;
 
 public class Task1 {
     public static void main(String[] args) {
