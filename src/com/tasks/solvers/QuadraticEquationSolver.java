@@ -1,8 +1,6 @@
 package com.tasks.solvers;
 
-/*
- * ax^2 + bx + c = 0
- */
+/* ax^2 + bx + c = 0 */
 public class QuadraticEquationSolver implements EquationSolver {
     private double a;
     private double b;

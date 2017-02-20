@@ -1,7 +1,11 @@
 *.class
 .idea/*
 /out/*
-
+.project
+AutomationMentoringProgram.iml
+src/.project
+src/src.iml
+        
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
 

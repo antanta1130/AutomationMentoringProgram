@@ -1,8 +1,6 @@
 package com.tasks.solvers;
 
-/*
- * bx + c = 0
- */
+/* bx + c = 0 */
 public class LinearEquationSolver implements EquationSolver {
     private double b;
     private double c;
@@ -19,7 +17,7 @@ public class LinearEquationSolver implements EquationSolver {
         double x;
         if (b != 0) {
             x = -c / b;
-            return "Root of linear equation is: x = " + x;
+            return "Root of a linear equation is: x = " + x;
         } else {
             return "It is not a linear equation";
         }
