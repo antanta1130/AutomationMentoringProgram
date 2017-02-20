@@ -1,15 +1,15 @@
 *.class
 .idea/*
 /out/*
+.project
+AutomationMentoringProgram.iml
+src/.project
+src/src.iml
 .idea/
 .project
 AutomationMentoringProgram.iml
-out/
-src/.project
-src/src.iml
 .gitignore
 src/src/.gitignore
-
 
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
