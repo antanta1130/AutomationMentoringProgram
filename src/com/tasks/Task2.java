@@ -1,7 +1,7 @@
-package tasks;
+package com.tasks;
 
-import tasks.solvers.EquationSolver;
-import tasks.solvers.LinearEquationSolver;
+import com.tasks.solvers.EquationSolver;
+import com.tasks.solvers.LinearEquationSolver;
 
 public class Task2 {
 	public static void main(String[] args) {

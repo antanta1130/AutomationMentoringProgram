@@ -1,4 +1,4 @@
-package tasks.solvers;
+package com.tasks.solvers;
 
 /*
  * ax^2 + bx + c = 0
