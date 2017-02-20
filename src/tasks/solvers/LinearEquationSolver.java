@@ -1,4 +1,4 @@
-package com.tasks.solvers;
+package tasks.solvers;
 
 /*
  * bx + c = 0
