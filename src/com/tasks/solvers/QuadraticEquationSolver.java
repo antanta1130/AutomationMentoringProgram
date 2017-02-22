@@ -5,7 +5,6 @@ public class QuadraticEquationSolver implements EquationSolver {
     private double a;
     private double b;
     private double c;
-    private double discriminant;
 
     public QuadraticEquationSolver() {
     }
@@ -14,7 +13,6 @@ public class QuadraticEquationSolver implements EquationSolver {
         this.a = a;
         this.b = b;
         this.c = c;
-        discriminant = discriminant();
     }
 
     public double discriminant() {
@@ -24,18 +22,24 @@ public class QuadraticEquationSolver implements EquationSolver {
     public String solve() {
         double x1;
         double x2;
+        double discriminant = discriminant();
 
         if (a != 0) {
             if (discriminant >= 0) {
                 x1 = (-b + Math.sqrt(discriminant)) / (2 * a);
                 x2 = (-b - Math.sqrt(discriminant)) / (2 * a);
-                return "Roots of quadratic equation are: x1 = " + x1 + "; x2 = " + x2;
+                return "Roots of a quadratic equation are: x1 = " + x1 + "; x2 = " + x2;
             } else {
-                return "There are no real roots";
+                return "There are no real roots, discriminant = " + discriminant;
             }
         } else {
             return "It is not a quadratic equation";
         }
+    }
+
+    @Override
+    public String toString() {
+        return "Quadratic equation: " + a + "x^2 " + (b >= 0 ? "+ " + b : b) + "x " + (c >= 0 ? "+ " + c : c) + " = 0";
     }
 
     public double getA() {
