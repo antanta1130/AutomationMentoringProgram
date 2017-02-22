@@ -44,8 +44,7 @@ public class Runner {
     public static void printResults(List<EquationSolver> cases) {
         for (EquationSolver c : cases) {
             System.out.println(c.toString());
-            System.out.println(c.solve());
-            System.out.println();
+            System.out.println(c.solve() + "\n");
         }
     }
 }
