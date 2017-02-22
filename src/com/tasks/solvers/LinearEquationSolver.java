@@ -23,4 +23,19 @@ public class LinearEquationSolver implements EquationSolver {
         }
     }
 
+    public double getB() {
+        return b;
+    }
+
+    public void setB(double b) {
+        this.b = b;
+    }
+
+    public double getC() {
+        return c;
+    }
+
+    public void setC(double c) {
+        this.c = c;
+    }
 }
