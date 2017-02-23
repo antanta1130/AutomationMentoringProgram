@@ -1,5 +1,7 @@
 package com.tasks.solvers;
 
+import com.tasks.Reader;
+
 /* bx + c = 0 */
 public class LinearEquationSolver implements EquationSolver {
     private double b;
@@ -18,10 +20,15 @@ public class LinearEquationSolver implements EquationSolver {
 
         if (b != 0) {
             x = -c / b;
-            return "Root of a linear equation is: x = " + x;
+            return "Root of a linear equation is: x = " + String.format("%.3f", x);
         } else {
             return "It is not a linear equation";
         }
+    }
+
+    public void readParametersfromConsole() {
+        setB(Reader.readDoubleValueFromConsoleAndVerify("b"));
+        setC(Reader.readDoubleValueFromConsoleAndVerify("c"));
     }
 
     @Override
