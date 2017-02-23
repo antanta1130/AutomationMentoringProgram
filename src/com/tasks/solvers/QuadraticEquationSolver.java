@@ -1,5 +1,7 @@
 package com.tasks.solvers;
 
+import com.tasks.Reader;
+
 /* ax^2 + bx + c = 0 */
 public class QuadraticEquationSolver implements EquationSolver {
     private double a;
@@ -35,6 +37,12 @@ public class QuadraticEquationSolver implements EquationSolver {
         } else {
             return "It is not a quadratic equation";
         }
+    }
+
+    public void readParametersfromConsole() {
+        setA(Reader.readDoubleValueFromConsoleAndVerify("a"));
+        setB(Reader.readDoubleValueFromConsoleAndVerify("b"));
+        setC(Reader.readDoubleValueFromConsoleAndVerify("c"));
     }
 
     @Override

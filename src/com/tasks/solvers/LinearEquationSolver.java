@@ -1,5 +1,7 @@
 package com.tasks.solvers;
 
+import com.tasks.Reader;
+
 /* bx + c = 0 */
 public class LinearEquationSolver implements EquationSolver {
     private double b;
@@ -22,6 +24,11 @@ public class LinearEquationSolver implements EquationSolver {
         } else {
             return "It is not a linear equation";
         }
+    }
+
+    public void readParametersfromConsole() {
+        setB(Reader.readDoubleValueFromConsoleAndVerify("b"));
+        setC(Reader.readDoubleValueFromConsoleAndVerify("c"));
     }
 
     @Override

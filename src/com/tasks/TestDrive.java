@@ -1,6 +1,9 @@
 package com.tasks;
 
 import com.sun.org.apache.xpath.internal.SourceTree;
+import com.tasks.solvers.EquationSolver;
+import com.tasks.solvers.LinearEquationSolver;
+import com.tasks.solvers.QuadraticEquationSolver;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -10,6 +13,7 @@ public class TestDrive {
     public static void main(String[] args) {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         boolean flag = true;
+        EquationSolver equationSolver;
 
 
         while (flag) {
@@ -17,12 +21,18 @@ public class TestDrive {
             try {
                 String type = br.readLine();
                 if ("linear".equalsIgnoreCase(type)) {
-                    Tasks.task2();
+                    equationSolver = new LinearEquationSolver();
+                    equationSolver.readParametersfromConsole();
+                    System.out.println(equationSolver.toString());
+                    System.out.println(equationSolver.solve() + "\n");
                     flag = false;
                 }
 
                 if ("quadratic".equalsIgnoreCase(type)) {
-                    Tasks.task1();
+                    equationSolver = new QuadraticEquationSolver();
+                    equationSolver.readParametersfromConsole();
+                    System.out.println(equationSolver.toString());
+                    System.out.println(equationSolver.solve() + "\n");
                     flag = false;
                 }
             } catch (IOException e) {
