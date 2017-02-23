@@ -28,7 +28,7 @@ public class QuadraticEquationSolver implements EquationSolver {
             if (discriminant >= 0) {
                 x1 = (-b + Math.sqrt(discriminant)) / (2 * a);
                 x2 = (-b - Math.sqrt(discriminant)) / (2 * a);
-                return "Roots of a quadratic equation are: x1 = " + x1 + "; x2 = " + x2;
+                return "Roots of a quadratic equation are: x1 = " + String.format("%.3f", x1) + "; x2 = " + String.format("%.3f", x2);
             } else {
                 return "There are no real roots, discriminant = " + discriminant;
             }

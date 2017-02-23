@@ -18,7 +18,7 @@ public class LinearEquationSolver implements EquationSolver {
 
         if (b != 0) {
             x = -c / b;
-            return "Root of a linear equation is: x = " + x;
+            return "Root of a linear equation is: x = " + String.format("%.3f", x);
         } else {
             return "It is not a linear equation";
         }

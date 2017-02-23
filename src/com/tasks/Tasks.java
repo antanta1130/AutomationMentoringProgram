@@ -7,23 +7,20 @@ import com.tasks.solvers.QuadraticEquationSolver;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Runner {
-    public static void main(String[] args) {
-        task1();
-        task2();
-    }
-
+public class Tasks {
     public static void task1() {
         List<EquationSolver> task1Cases = new ArrayList<EquationSolver>();
         EquationSolver quadraticEquationSolver1 = new QuadraticEquationSolver(8, -77, 4);
         EquationSolver quadraticEquationSolver2 = new QuadraticEquationSolver(0, 77, 4);
         EquationSolver quadraticEquationSolver3 = new QuadraticEquationSolver(8, 1, 4);
         EquationSolver quadraticEquationSolver4 = new QuadraticEquationSolver();
+        EquationSolver quadraticEquationSolver5 = new QuadraticEquationSolver(1, 0, -1);
 
         task1Cases.add(quadraticEquationSolver1);
         task1Cases.add(quadraticEquationSolver2);
         task1Cases.add(quadraticEquationSolver3);
         task1Cases.add(quadraticEquationSolver4);
+        task1Cases.add(quadraticEquationSolver5);
 
         printResults(task1Cases);
     }
