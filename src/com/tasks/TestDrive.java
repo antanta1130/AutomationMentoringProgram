@@ -21,23 +21,23 @@ public class TestDrive {
             try {
                 String type = br.readLine();
                 if ("linear".equalsIgnoreCase(type)) {
-                    equationSolver = new LinearEquationSolver();
-                    equationSolver.readParametersfromConsole();
-                    System.out.println(equationSolver.toString());
-                    System.out.println(equationSolver.solve() + "\n");
+                    readParametersfromConsoleAndSolve(new LinearEquationSolver());
                     flag = false;
                 }
 
                 if ("quadratic".equalsIgnoreCase(type)) {
-                    equationSolver = new QuadraticEquationSolver();
-                    equationSolver.readParametersfromConsole();
-                    System.out.println(equationSolver.toString());
-                    System.out.println(equationSolver.solve() + "\n");
+                    readParametersfromConsoleAndSolve(new QuadraticEquationSolver());
                     flag = false;
                 }
             } catch (IOException e) {
                 e.printStackTrace();
             }
         }
+    }
+
+    public static void readParametersfromConsoleAndSolve(EquationSolver equationSolver) {
+        equationSolver.readParametersfromConsole();
+        System.out.println(equationSolver.toString());
+        System.out.println(equationSolver.solve() + "\n");
     }
 }
