@@ -5,26 +5,17 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 public class Reader {
-    public static double readDoubleValueFromConsoleAndVerify(String name) {
+    public static double readDoubleValueFromConsoleAndVerify(String name) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        String s;
-        double result = 0;
-        boolean flag = true;
 
-        while (flag) {
+        while (true) {
             System.out.print("Enter double value: " + name + " = ");
             try {
-                s = br.readLine();
-                result = Double.parseDouble(s);
-                flag = false;
+                String s = br.readLine();
+                return Double.parseDouble(s);
             } catch (NumberFormatException e) {
-                flag = true;
-            } catch (IOException e) {
-                e.printStackTrace();
             }
         }
-
-        return result;
 
     }
 

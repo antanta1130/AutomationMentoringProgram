@@ -2,6 +2,8 @@ package com.tasks.solvers;
 
 import com.tasks.Reader;
 
+import java.io.IOException;
+
 /* ax^2 + bx + c = 0 */
 public class QuadraticEquationSolver implements EquationSolver {
     private double a;
@@ -39,7 +41,7 @@ public class QuadraticEquationSolver implements EquationSolver {
         }
     }
 
-    public void readParametersfromConsole() {
+    public void readParametersfromConsole() throws IOException {
         setA(Reader.readDoubleValueFromConsoleAndVerify("a"));
         setB(Reader.readDoubleValueFromConsoleAndVerify("b"));
         setC(Reader.readDoubleValueFromConsoleAndVerify("c"));

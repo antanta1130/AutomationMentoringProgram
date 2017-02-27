@@ -2,6 +2,8 @@ package com.tasks.solvers;
 
 import com.tasks.Reader;
 
+import java.io.IOException;
+
 /* bx + c = 0 */
 public class LinearEquationSolver implements EquationSolver {
     private double b;
@@ -26,7 +28,7 @@ public class LinearEquationSolver implements EquationSolver {
         }
     }
 
-    public void readParametersfromConsole() {
+    public void readParametersfromConsole() throws IOException {
         setB(Reader.readDoubleValueFromConsoleAndVerify("b"));
         setC(Reader.readDoubleValueFromConsoleAndVerify("c"));
     }

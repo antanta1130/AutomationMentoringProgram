@@ -1,6 +1,5 @@
 package com.tasks;
 
-import com.sun.org.apache.xpath.internal.SourceTree;
 import com.tasks.solvers.EquationSolver;
 import com.tasks.solvers.LinearEquationSolver;
 import com.tasks.solvers.QuadraticEquationSolver;
@@ -35,7 +34,7 @@ public class TestDrive {
         }
     }
 
-    public static void readParametersfromConsoleAndSolve(EquationSolver equationSolver) {
+    public static void readParametersfromConsoleAndSolve(EquationSolver equationSolver) throws IOException{
         equationSolver.readParametersfromConsole();
         System.out.println(equationSolver.toString());
         System.out.println(equationSolver.solve() + "\n");
