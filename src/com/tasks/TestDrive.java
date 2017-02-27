@@ -36,7 +36,7 @@ public class TestDrive {
         }
     }
 
-    public static void readParametersfromConsoleAndSolve(EquationSolver equationSolver) throws IOException{
+    public static void readParametersfromConsoleAndSolve(EquationSolver equationSolver) throws IOException {
         equationSolver.readParametersfromConsole();
         System.out.println(equationSolver.toString());
         System.out.println(equationSolver.solve() + "\n");
