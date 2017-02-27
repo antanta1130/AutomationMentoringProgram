@@ -44,7 +44,7 @@ public class LinearEquationSolver implements EquationSolver {
 
     @Override
     public String toString() {
-        return "Linear equation: " + b + "x " + String.format("+ (%.3f)", c) + " = 0";
+        return "Linear equation: " + b + "x " + (c >= 0 ? "+ " + c : c) + " = 0";
     }
 
     public double getB() {

@@ -63,7 +63,7 @@ public class QuadraticEquationSolver implements EquationSolver {
 
     @Override
     public String toString() {
-        return "Quadratic equation: " + a + "x^2 " + String.format("+ (%.3f)", b) + "x " + String.format("+ (%.3f)", c) + " = 0";
+        return "Quadratic equation: " + a + "x^2 " + (b >= 0 ? "+ " + b : b) + "x " + (c >= 0 ? "+ " + c : c) + " = 0";
     }
 
     public double getA() {
