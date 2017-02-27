@@ -2,6 +2,9 @@ package com.tasks.solvers;
 
 import com.tasks.Reader;
 
+import java.io.IOException;
+import java.util.Map;
+
 /* bx + c = 0 */
 public class LinearEquationSolver implements EquationSolver {
     private double b;
@@ -16,19 +19,27 @@ public class LinearEquationSolver implements EquationSolver {
     }
 
     public String solve() {
-        double x;
-
         if (b != 0) {
-            x = -c / b;
+            double x = -c / b;
             return "Root of a linear equation is: x = " + String.format("%.3f", x);
         } else {
             return "It is not a linear equation";
         }
     }
 
-    public void readParametersfromConsole() {
-        setB(Reader.readDoubleValueFromConsoleAndVerify("b"));
-        setC(Reader.readDoubleValueFromConsoleAndVerify("c"));
+    public void readParametersfromConsole() throws IOException {
+        Map<String, Double> result = Reader.readDoubleValueFromConsoleAndVerify(new String[]{"b", "c"});
+
+        for (Map.Entry<String, Double> pair : result.entrySet()) {
+            switch (pair.getKey()) {
+                case "b":
+                    setB(pair.getValue());
+                    break;
+                case "c":
+                    setC(pair.getValue());
+                    break;
+            }
+        }
     }
 
     @Override

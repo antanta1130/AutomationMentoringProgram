@@ -1,31 +1,34 @@
 package com.tasks;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import java.io.*;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Reader {
-    public static double readDoubleValueFromConsoleAndVerify(String name) {
+    public static Map<String, Double> readDoubleValueFromConsoleAndVerify(String[] names) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        String s;
-        double result = 0;
-        boolean flag = true;
+        StringBuilder listOfNames = new StringBuilder();
+        Map<String, Double> result = new HashMap<String, Double>();
+        String[] split;
 
-        while (flag) {
-            System.out.print("Enter double value: " + name + " = ");
-            try {
-                s = br.readLine();
-                result = Double.parseDouble(s);
-                flag = false;
-            } catch (NumberFormatException e) {
-                flag = true;
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+        for (String name : names) {
+            listOfNames.append(name).append(", ");
         }
 
-        return result;
+        listOfNames.deleteCharAt(listOfNames.length() - 2);
 
+        while (true) {
+            System.out.println("Enter " + names.length + " double values separated by , in such sequence: " + listOfNames);
+            try {
+                String s = br.readLine();
+                split = s.split(",");
+                for (int i = 0; i < names.length; i++) {
+                    result.put(names[i], Double.parseDouble(split[i]));
+                }
+                return result;
+
+            } catch (NumberFormatException e) {
+            }
+        }
     }
-
 }
