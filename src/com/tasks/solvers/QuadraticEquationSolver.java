@@ -3,7 +3,6 @@ package com.tasks.solvers;
 import com.tasks.Reader;
 
 import java.io.IOException;
-import java.util.HashMap;
 import java.util.Map;
 
 /* ax^2 + bx + c = 0 */
