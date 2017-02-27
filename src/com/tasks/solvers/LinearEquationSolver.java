@@ -3,6 +3,7 @@ package com.tasks.solvers;
 import com.tasks.Reader;
 
 import java.io.IOException;
+import java.util.Map;
 
 /* bx + c = 0 */
 public class LinearEquationSolver implements EquationSolver {
@@ -29,8 +30,18 @@ public class LinearEquationSolver implements EquationSolver {
     }
 
     public void readParametersfromConsole() throws IOException {
-        setB(Reader.readDoubleValueFromConsoleAndVerify("b"));
-        setC(Reader.readDoubleValueFromConsoleAndVerify("c"));
+        Map<String, Double> result = Reader.readDoubleValueFromConsoleAndVerify(new String[]{"b", "c"});
+
+        for (Map.Entry<String, Double> pair : result.entrySet()) {
+            switch (pair.getKey()) {
+                case "b":
+                    setB(pair.getValue());
+                    break;
+                case "c":
+                    setC(pair.getValue());
+                    break;
+            }
+        }
     }
 
     @Override

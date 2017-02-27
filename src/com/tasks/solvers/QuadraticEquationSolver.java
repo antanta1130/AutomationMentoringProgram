@@ -3,6 +3,8 @@ package com.tasks.solvers;
 import com.tasks.Reader;
 
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 
 /* ax^2 + bx + c = 0 */
 public class QuadraticEquationSolver implements EquationSolver {
@@ -42,9 +44,22 @@ public class QuadraticEquationSolver implements EquationSolver {
     }
 
     public void readParametersfromConsole() throws IOException {
-        setA(Reader.readDoubleValueFromConsoleAndVerify("a"));
-        setB(Reader.readDoubleValueFromConsoleAndVerify("b"));
-        setC(Reader.readDoubleValueFromConsoleAndVerify("c"));
+        Map<String, Double> result = Reader.readDoubleValueFromConsoleAndVerify(new String[]{"a", "b", "c"});
+
+        for (Map.Entry<String, Double> pair : result.entrySet()) {
+            switch (pair.getKey()) {
+                case "a":
+                    setA(pair.getValue());
+                    break;
+                case "b":
+                    setB(pair.getValue());
+                    break;
+                case "c":
+                    setC(pair.getValue());
+                    break;
+            }
+
+        }
     }
 
     @Override
