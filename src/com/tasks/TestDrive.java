@@ -11,7 +11,6 @@ import java.io.InputStreamReader;
 public class TestDrive {
     public static void main(String[] args) {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        EquationSolver equationSolver;
 
         while (true) {
             System.out.println("Enter type of an equation which you would like to solve: linear/quadratic");
