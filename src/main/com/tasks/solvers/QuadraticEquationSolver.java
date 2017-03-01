@@ -6,7 +6,7 @@ import java.io.IOException;
 import java.util.Map;
 
 /* ax^2 + bx + c = 0 */
-public class QuadraticEquationSolver implements EquationSolver, ReadFromConsole {
+public class QuadraticEquationSolver implements EquationSolver {
     private double a;
     private double b;
     private double c;

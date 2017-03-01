@@ -6,7 +6,7 @@ import java.io.IOException;
 import java.util.Map;
 
 /* bx + c = 0 */
-public class LinearEquationSolver implements EquationSolver, ReadFromConsole {
+public class LinearEquationSolver implements EquationSolver {
     private double b;
     private double c;
 
