@@ -5,7 +5,7 @@ import com.tasks.task2.solvers.LinearEquationSolver;
 import com.tasks.task2.solvers.QuadraticEquationSolver;
 
 public class DecisionMaker {
-    EquationSolver equationSolver;
+    private EquationSolver equationSolver;
 
     public static EquationSolver chooseTypeOfEquation(String type) {
         if ("linear".equalsIgnoreCase(type)) {
