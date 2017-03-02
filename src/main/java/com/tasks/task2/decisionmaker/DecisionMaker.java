@@ -23,7 +23,7 @@ public class DecisionMaker {
         return null;
     }
 
-    public void readTypeOfEquationFromConsole(){
+    public void readTypeOfEquationFromConsole() {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         String type;
 

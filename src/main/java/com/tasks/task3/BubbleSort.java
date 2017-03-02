@@ -1,6 +1,5 @@
 package com.tasks.task3;
 
-
 public class BubbleSort {
     public static int[] sort(int[] array) {
         int swap;

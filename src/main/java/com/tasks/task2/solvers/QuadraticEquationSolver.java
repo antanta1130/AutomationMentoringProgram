@@ -43,19 +43,19 @@ public class QuadraticEquationSolver implements EquationSolver {
     }
 
     public void readParametersfromConsole() throws IOException {
-        Map<String, Double> result = Reader.readDoubleValueFromConsoleAndVerify(new String[]{"a", "b", "c"});
+        Map<String, Double> result = Reader.readDoubleValueFromConsoleAndVerify(new String[] { "a", "b", "c" });
 
         for (Map.Entry<String, Double> pair : result.entrySet()) {
             switch (pair.getKey()) {
-                case "a":
-                    setA(pair.getValue());
-                    break;
-                case "b":
-                    setB(pair.getValue());
-                    break;
-                case "c":
-                    setC(pair.getValue());
-                    break;
+            case "a":
+                setA(pair.getValue());
+                break;
+            case "b":
+                setB(pair.getValue());
+                break;
+            case "c":
+                setC(pair.getValue());
+                break;
             }
 
         }
