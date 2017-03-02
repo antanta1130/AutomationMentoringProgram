@@ -1,8 +1,8 @@
-package com.tasks;
+package com.tasks.task2;
 
-import com.tasks.solvers.EquationSolver;
-import com.tasks.solvers.LinearEquationSolver;
-import com.tasks.solvers.QuadraticEquationSolver;
+import com.tasks.task2.solvers.EquationSolver;
+import com.tasks.task2.solvers.LinearEquationSolver;
+import com.tasks.task2.solvers.QuadraticEquationSolver;
 
 import java.util.ArrayList;
 import java.util.List;

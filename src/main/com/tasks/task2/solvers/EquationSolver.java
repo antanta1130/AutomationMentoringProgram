@@ -1,4 +1,4 @@
-package com.tasks.solvers;
+package com.tasks.task2.solvers;
 
 import java.io.IOException;
 
