@@ -1,6 +1,4 @@
-package com.tasks.solvers;
-
-import com.tasks.Reader;
+package com.tasks.task2.solvers;
 
 import java.io.IOException;
 import java.util.Map;

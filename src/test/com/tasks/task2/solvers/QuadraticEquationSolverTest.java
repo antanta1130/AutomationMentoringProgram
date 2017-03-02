@@ -1,4 +1,4 @@
-package com.tasks.solvers;
+package com.tasks.task2.solvers;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
