@@ -1,21 +1,12 @@
-*.class
-.idea/*
-/out/*
-.project
-AutomationMentoringProgram.iml
-src/.project
-src/src.iml
-.idea/
-.gitignore
+# Maven
 target/
 
-# Mobile Tools for Java (J2ME)
-.mtj.tmp/
+#Eclipse
+.project
+.settings/
+.classpath
 
-# Package Files #
-*.jar
-*.war
-*.ear
+#Idea
+out/
+.idea/
 
-# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
-hs_err_pid*
