@@ -1,5 +1,7 @@
 package com.tasks.task2.solvers;
 
+import com.tasks.task2.Reader;
+
 import java.io.IOException;
 import java.util.Map;
 
