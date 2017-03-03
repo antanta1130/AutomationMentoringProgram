@@ -1,23 +1,25 @@
 package com.tasks.task3;
 
 public class BinarySearch {
-    private int[] array;
+    private Integer[] array;
 
-    public BinarySearch(int[] array) {
+    public BinarySearch(Integer[] array) {
 	this.array = array;
     }
 
-    public int find(double x) {
-	int position = -1;
+    public Boolean find(Integer x) {
+	boolean flag = false;
 	int start = 0;
 	int end = array.length;
 	int mid;
 
 	if (array != null) {
+	    BubbleSort.sort(array);
+
 	    while (start < end) {
 		mid = (start + end) >>> 1;
 		if (array[mid] == x) {
-		    position = mid;
+		    flag = true;
 		    break;
 		} else {
 		    if (x > array[mid]) {
@@ -30,7 +32,7 @@ public class BinarySearch {
 
 	}
 
-	return position;
+	return flag;
     }
 
 }
