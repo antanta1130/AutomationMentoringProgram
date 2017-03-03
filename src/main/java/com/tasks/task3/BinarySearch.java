@@ -1,13 +1,13 @@
 package com.tasks.task3;
 
 public class BinarySearch {
-    private Integer[] array;
+    private int[] array;
 
-    public BinarySearch(Integer[] array) {
+    public BinarySearch(int[] array) {
 	this.array = array;
     }
 
-    public Boolean find(Integer x) {
+    public boolean find(int x) {
 	boolean flag = false;
 	int start = 0;
 	int end = array.length;
@@ -15,7 +15,6 @@ public class BinarySearch {
 
 	if (array != null) {
 	    BubbleSort.sort(array);
-
 	    while (start < end) {
 		mid = (start + end) >>> 1;
 		if (array[mid] == x) {
