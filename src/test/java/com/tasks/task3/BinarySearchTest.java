@@ -10,7 +10,7 @@ public class BinarySearchTest {
 
     @BeforeTest
     public void initialize() {
-	Integer[] array = { 2, 9, 3, 6, 4, 5, 1, 7, 8, 0 };
+	int[] array = { 2, 9, 3, 6, 4, 5, 1, 7, 8, 0 };
 	binarySearch = new BinarySearch(array);
     }
 
@@ -20,7 +20,7 @@ public class BinarySearchTest {
     }
 
     @Test(dataProvider = "test")
-    public void testFind(Integer inputNumber, Boolean expectedResult) {
+    public void testFind(int inputNumber, boolean expectedResult) {
 	System.out.println(inputNumber + " " + expectedResult);
 	Assert.assertEquals(binarySearch.find(inputNumber), expectedResult);
     }
