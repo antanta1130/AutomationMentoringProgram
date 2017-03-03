@@ -9,7 +9,12 @@ public class BubbleSortTest {
 
     @Test
     public void testSort() {
-        Assert.assertEquals(BubbleSort.sort(array), expectedArray);
+	Assert.assertEquals(BubbleSort.sort(array), expectedArray);
+    }
+
+    @Test
+    public void testSortWithNull() {
+	Assert.assertEquals(BubbleSort.sort(null), null);
     }
 
 }
