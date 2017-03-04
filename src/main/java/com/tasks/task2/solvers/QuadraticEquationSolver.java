@@ -1,13 +1,8 @@
 package com.tasks.task2.solvers;
 
-import java.io.IOException;
-import java.io.Reader;
-import java.util.Map;
-
-import com.tasks.task2.MyReader;
-
 /* ax^2 + bx + c = 0 */
 public class QuadraticEquationSolver implements EquationSolver {
+    private static String PARAMS = "a, b, c";
     private double a;
     private double b;
     private double c;
@@ -45,23 +40,24 @@ public class QuadraticEquationSolver implements EquationSolver {
     }
 
     @Override
-    public void readParameters(Reader reader) throws IOException {
-        MyReader myReader = new MyReader(reader);
-        Map<String, Double> result = myReader.readDoubleValuesAndVerify(new String[] { "a", "b", "c" });
-
-        for (Map.Entry<String, Double> pair : result.entrySet()) {
-            switch (pair.getKey()) {
-            case "a":
-                setA(pair.getValue());
-                break;
-            case "b":
-                setB(pair.getValue());
-                break;
-            case "c":
-                setC(pair.getValue());
-                break;
-            }
+    public void initialize(double[] params) {
+        if (params.length != 3) {
+            throw new RuntimeException("3 parameters are needed");
         }
+
+        a = params[0];
+        b = params[1];
+        c = params[2];
+    }
+
+    @Override
+    public String getName() {
+        return "quadratic";
+    }
+
+    @Override
+    public String getParams() {
+        return PARAMS;
     }
 
     @Override
@@ -91,5 +87,10 @@ public class QuadraticEquationSolver implements EquationSolver {
 
     public void setC(double c) {
         this.c = c;
+    }
+
+    @Override
+    public int getParamsNumbers() {
+        return 3;
     }
 }

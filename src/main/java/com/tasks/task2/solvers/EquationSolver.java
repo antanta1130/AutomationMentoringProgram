@@ -1,10 +1,13 @@
 package com.tasks.task2.solvers;
 
-import java.io.IOException;
-import java.io.Reader;
-
 public interface EquationSolver {
-    public String solve();
+    String solve();
 
-    public void readParameters(Reader reader) throws IOException;
+    String getParams();
+
+    void initialize(double[] params);
+
+    int getParamsNumbers();
+
+    String getName();
 }

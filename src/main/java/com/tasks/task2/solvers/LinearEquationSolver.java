@@ -1,13 +1,8 @@
 package com.tasks.task2.solvers;
 
-import java.io.IOException;
-import java.io.Reader;
-import java.util.Map;
-
-import com.tasks.task2.MyReader;
-
 /* bx + c = 0 */
 public class LinearEquationSolver implements EquationSolver {
+    private static String PARAMS = "b, c";
     private double b;
     private double c;
 
@@ -30,20 +25,23 @@ public class LinearEquationSolver implements EquationSolver {
     }
 
     @Override
-    public void readParameters(Reader reader) throws IOException {
-        MyReader myReader = new MyReader(reader);
-        Map<String, Double> result = myReader.readDoubleValuesAndVerify(new String[] { "b", "c" });
-
-        for (Map.Entry<String, Double> pair : result.entrySet()) {
-            switch (pair.getKey()) {
-            case "b":
-                setB(pair.getValue());
-                break;
-            case "c":
-                setC(pair.getValue());
-                break;
-            }
+    public void initialize(double[] params) {
+        if (params.length != 2) {
+            throw new RuntimeException("2 parameters are needed");
         }
+
+        b = params[0];
+        c = params[1];
+    }
+
+    @Override
+    public String getName() {
+        return "linear";
+    }
+
+    @Override
+    public String getParams() {
+        return PARAMS;
     }
 
     @Override
@@ -65,6 +63,11 @@ public class LinearEquationSolver implements EquationSolver {
 
     public void setC(double c) {
         this.c = c;
+    }
+
+    @Override
+    public int getParamsNumbers() {
+        return 2;
     }
 
 }
