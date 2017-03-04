@@ -1,9 +1,10 @@
 package com.tasks.task2.solvers;
 
-import com.tasks.task2.Reader;
-
 import java.io.IOException;
+import java.io.Reader;
 import java.util.Map;
+
+import com.tasks.task2.MyReader;
 
 /* ax^2 + bx + c = 0 */
 public class QuadraticEquationSolver implements EquationSolver {
@@ -24,6 +25,7 @@ public class QuadraticEquationSolver implements EquationSolver {
         return b * b - 4 * a * c;
     }
 
+    @Override
     public String solve() {
         double x1;
         double x2;
@@ -42,8 +44,10 @@ public class QuadraticEquationSolver implements EquationSolver {
         }
     }
 
-    public void readParametersfromConsole() throws IOException {
-        Map<String, Double> result = Reader.readDoubleValueFromConsoleAndVerify(new String[] { "a", "b", "c" });
+    @Override
+    public void readParameters(Reader reader) throws IOException {
+        MyReader myReader = new MyReader(reader);
+        Map<String, Double> result = myReader.readDoubleValuesAndVerify(new String[] { "a", "b", "c" });
 
         for (Map.Entry<String, Double> pair : result.entrySet()) {
             switch (pair.getKey()) {
@@ -57,7 +61,6 @@ public class QuadraticEquationSolver implements EquationSolver {
                 setC(pair.getValue());
                 break;
             }
-
         }
     }
 

@@ -1,9 +1,10 @@
 package com.tasks.task2.solvers;
 
-import com.tasks.task2.Reader;
-
 import java.io.IOException;
+import java.io.Reader;
 import java.util.Map;
+
+import com.tasks.task2.MyReader;
 
 /* bx + c = 0 */
 public class LinearEquationSolver implements EquationSolver {
@@ -18,6 +19,7 @@ public class LinearEquationSolver implements EquationSolver {
         this.c = c;
     }
 
+    @Override
     public String solve() {
         if (b != 0) {
             double x = -c / b;
@@ -27,8 +29,10 @@ public class LinearEquationSolver implements EquationSolver {
         }
     }
 
-    public void readParametersfromConsole() throws IOException {
-        Map<String, Double> result = Reader.readDoubleValueFromConsoleAndVerify(new String[] { "b", "c" });
+    @Override
+    public void readParameters(Reader reader) throws IOException {
+        MyReader myReader = new MyReader(reader);
+        Map<String, Double> result = myReader.readDoubleValuesAndVerify(new String[] { "b", "c" });
 
         for (Map.Entry<String, Double> pair : result.entrySet()) {
             switch (pair.getKey()) {
@@ -62,4 +66,5 @@ public class LinearEquationSolver implements EquationSolver {
     public void setC(double c) {
         this.c = c;
     }
+
 }
