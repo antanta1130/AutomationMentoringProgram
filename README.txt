@@ -34,3 +34,13 @@ Optional tasks
 3. Write a program called SumAndAverage to produce the sum of 1, 2, 3, ..., to 100. Also compute and display the average. 
 4. Write a program called ComputePI to compute the value of π (compare it with Math.PI)
 5. Write a program called HarmonicSum to compute the sum of a harmonic series, as shown below, where n=50000
+
+
+Home task 5
+https://kb.epam.com/display/GDOKB/Lecture+5.+Basis+Java,+part+4
+
+Suppose you have written a time server that periodically notifies its clients of the current date and time. 
+Write an interface the server could use to enforce a particular protocol on its clients
+Write some code to use this interface for different time servers implementation
+
+NOTE!!! Time server call could be something like System.out.println(“server impl 1 called”)
