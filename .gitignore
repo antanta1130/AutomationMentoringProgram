@@ -6,6 +6,7 @@ target/
 .settings/
 .classpath
 test-output/
+test-output/junitreports
 
 #Idea
 out/
