@@ -36,7 +36,7 @@ public class TimeServer implements Subject {
         notifyObservers();
     }
 
-    public void setMeasurements(Date currentDate) {
+    public void setDate(Date currentDate) {
         this.currentDate = currentDate;
         dateTimeChanged();
     }
