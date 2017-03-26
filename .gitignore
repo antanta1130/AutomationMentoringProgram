@@ -5,6 +5,7 @@ target/
 .project
 .settings/
 .classpath
+test-output/
 
 #Idea
 out/

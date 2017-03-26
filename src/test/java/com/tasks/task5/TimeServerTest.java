@@ -4,17 +4,22 @@ import java.util.Date;
 
 import org.testng.annotations.Test;
 
-import com.tasks.task2.solvers.EquationSolver;
-
 public class TimeServerTest {
     private final TimeServer timeServer = new TimeServer();
+    private final TimeServer2 timeServer2 = new TimeServer2();
+    private CurrentDateDisplay currentDisplay;
 
     @Test
-    public void testSolve(EquationSolver equationSolver, String expectedResult) {
+    public void testTimeServer() {
         Date date = new Date();
-        CurrentDateDisplay currentDisplay = new CurrentDateDisplay(timeServer);
-
+        currentDisplay = new CurrentDateDisplay(timeServer);
         timeServer.setMeasurements(date);
-        // Assert.assertEquals(date, equationSolver.solve());
+    }
+
+    @Test
+    public void testTimeServer2() {
+        Date date = new Date();
+        currentDisplay = new CurrentDateDisplay(timeServer2);
+        timeServer2.setMeasurements(date);
     }
 }
