@@ -13,13 +13,13 @@ public class TimeServerTest {
     public void testTimeServer() {
         Date date = new Date();
         currentDisplay = new CurrentDateDisplay(timeServer);
-        timeServer.setMeasurements(date);
+        timeServer.setDate(date);
     }
 
     @Test
     public void testTimeServer2() {
         Date date = new Date();
         currentDisplay = new CurrentDateDisplay(timeServer2);
-        timeServer2.setMeasurements(date);
+        timeServer2.setDate(date);
     }
 }
