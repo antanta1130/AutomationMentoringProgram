@@ -10,3 +10,5 @@ target/
 out/
 .idea/
 
+#TestNG
+test-output/
