@@ -12,3 +12,5 @@ test-output/junitreports
 out/
 .idea/
 
+#TestNG
+test-output/
