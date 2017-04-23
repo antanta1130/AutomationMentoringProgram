@@ -44,3 +44,37 @@ Write an interface the server could use to enforce a particular protocol on its 
 Write some code to use this interface for different time servers implementation
 
 NOTE!!! Time server call could be something like System.out.println(“server impl 1 called”)
+
+Home task 7
+Deadline - 20.04.2017
+1. Реализовать алгоритм сжатия строки. Набор повторяемых букв должен быть заменен на цифру (указывает количество повторов) и букву которая повторяется. Например
+
+Heeellooooo будет заменено на H3e2l5o
+
+если количество букв в повторе больше девяти то тогда должно быть две комбинации буква цифра. Например
+
+Heeeeeeeeeeeellooooo будет заменено на H9e3e2l5o
+
+ 
+
+Если буква не повторяется то замену производить не нужно. Например
+
+World будет преобразован в World так как тут повторений нет
+
+2. Реализовать алгоритм разбора и вычисления строки в обратной польской записи https://en.wikipedia.org/wiki/Reverse_Polish_notation.
+
+Например выражение 
+
+5 1 2 + 4 × + 3 − 
+
+будет вычислено в 14
+
+В случае если выражение невозможно вычислить необходимо выбросить исключение RPNParserException. Класс исключения реализовать самостоятельно.
+
+В случае если в выражении произойдет деление на ноль, например: 0 0 / или любое другое в ходе вычисления которого возникает ошибка деления на ноль необходимо выбросить ArithmeticException (https://docs.oracle.com/javase/7/docs/api/java/lang/ArithmeticException.html)
+
+3. Реализовать декодер строки из первого задания. Например
+
+H9e3e2l5o будет преобразовано в Heeeeeeeeeeeellooooo
+
+При реализации необходимо проверять корректность строки на входе. Например: 9 или H9 при преобразовании должны вернуть пустую строку!
