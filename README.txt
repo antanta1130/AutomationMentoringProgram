@@ -1,4 +1,4 @@
-Home task 1
+﻿Home task 1
 Deadline - 22.02.2017
 Page 18 of the presentation (use GIT or e-mail to show your code to the mentor)
 
@@ -64,3 +64,38 @@ World будет преобразован в World так как тут повт
 3. Реализовать декодер строки из первого задания. Например
 H9e3e2l5o будет преобразовано в Heeeeeeeeeeeellooooo
 При реализации необходимо проверять корректность строки на входе. Например: 9 или H9 при преобразовании должны вернуть пустую строку!
+
+
+Home task
+
+Deadline - 17.05.2017
+
+Homework 1. Create  the script for task 5  from presentation Selenium IDE
+
+Task 5
+1.Goto 
+http://www.theautomatedtester.co.uk/tutorials/selenium/Selenium_JavaScript.htm
+2.Enter numbers into each of the text boxes and then click on one of the buttons
+3.Compare it against what we think the answer is going to be. 
+
+1.For this we need to use the verifyEval or assertEval commands.
+2.Your next step in the script should look a lot like the following: verifyEval | javascript{1+1} | ${total}
+    
+Homework 2.
+        Open Wiki Main page (en)- https://en.wikipedia.org/wiki/Main_Page
+        Store the value of the link “Wikipedia store” in variable
+        Click on the link “Wikipedia store”
+        Check that the opened page contains the saved variable
+    
+Homework 3.
+        Відкрити https://www.google.com.ua/
+        Пошукати automation testing Java
+        Перейти на третю сторінку пошуку
+        Вибрати перший результат  и перейти по ньому
+        Перевірити, що на сторінці є слова  automation, testing,  Java
+   
+Homework 4.
+        Зайти на http://www.diary.ru/
+        Ауторизуватися в системі (параметри в презентації Selenium IDE – task 3)
+        Створити новий пост в щоденнику
+        Впевнитися, що пост створено
