@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://www.theautomatedtester.co.uk/" />
+<title>totalComplicated</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">totalComplicated</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/tutorials/selenium/Selenium_JavaScript.htm</td>
+	<td></td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>6</td>
+	<td>var1</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>2</td>
+	<td>var2</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{['add', 'minus', 'multiply', 'divide'][Math.floor(Math.random()*4)]}</td>
+	<td>operation</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{switch (storedVars['operation']) {case &quot;add&quot;: &quot;+&quot;; break; case&nbsp;&nbsp;&quot;minus&quot;: &quot;-&quot;; break; case&nbsp;&nbsp;&quot;multiply&quot;: &quot;*&quot;; break; case &quot;divide&quot;:&quot;/&quot;; break; default: &quot;fail&quot;}}</td>
+	<td>sign</td>
+</tr>
+<tr>
+	<td>assertEval</td>
+	<td>javascript{storedVars['sign']!=&quot;fail&quot;}</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=number1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=number1</td>
+	<td>${var1}</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=number2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=number2</td>
+	<td>${var2}</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=${operation}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeValue</td>
+	<td>id=total</td>
+	<td>Total</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{parseFloat(storedVars['var1'])}</td>
+	<td>var1n</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{parseFloat(storedVars['var2'])}</td>
+	<td>var2n</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>${var1n}${sign}${var2n}</td>
+	<td>expr</td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>${expr}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyEval</td>
+	<td>javascript{eval(storedVars['expr'])}</td>
+	<td>${Total}</td>
+</tr>
+</tbody></table>
+</body>
+</html>
