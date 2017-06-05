@@ -116,3 +116,8 @@ Deadline - 08.06.2017
 Pages 26- 29, 1 point for each slide.
  https://kb.epam.com/display/GDOKB/Lecture+12.+CSS+locators?preview=/405581645/405582646/CSS_Training_2017.pptx
  
+Home task 13
+Deadline - 08.06.2017
+Page 37.
+https://kb.epam.com/display/GDOKB/Lecture+13.+Test+result+logging?preview=/405581686/405581680/Logging%20for%20EPAM2.pptx
+ 
