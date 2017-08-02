@@ -99,3 +99,25 @@ Homework 4.
         Ауторизуватися в системі (параметри в презентації Selenium IDE – task 3)
         Створити новий пост в щоденнику
         Впевнитися, що пост створено
+        
+ 
+Home Task 11
+Deadline
+
+Part 1 - 17.05.2015 (Pages 51-54)
+
+Part 2 - 26.05.2015 (Pages 23-29) - 1 point for each task
+ https://kb.epam.com/display/GDOKB/Lecture+11.+XPath+and+Regular+Expressions?preview=/402313766/403703459/Java%20MPEPAM_regular_expression.pptx
+ 
+  
+Home Task 12
+Deadline - 08.06.2017
+
+Pages 26- 29, 1 point for each slide.
+ https://kb.epam.com/display/GDOKB/Lecture+12.+CSS+locators?preview=/405581645/405582646/CSS_Training_2017.pptx
+ 
+Home task 13
+Deadline - 08.06.2017
+Page 37.
+https://kb.epam.com/display/GDOKB/Lecture+13.+Test+result+logging?preview=/405581686/405581680/Logging%20for%20EPAM2.pptx
+ 
