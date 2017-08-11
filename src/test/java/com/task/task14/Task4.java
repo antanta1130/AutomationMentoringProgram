@@ -9,50 +9,41 @@ import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
 
+
+
 public class Task4 {
-    private WebDriver internetExplorerDriver;
+    private WebDriver chromeDriver;
     private FluentWait<WebDriver> wait;
-    private final String exePath = "C:\\Users\\Tetiana\\Documents\\AutomationMentoringProgram\\";
+    private final String exePath = "D:\\AutomationMentoringProgram\\";
 
     @Before
     public void createDriver() {
-        System.setProperty("webdriver.ie.driver", exePath + "IEDriverServer.exe");
-        internetExplorerDriver = new InternetExplorerDriver();
-        internetExplorerDriver.manage().window().maximize();
+        System.setProperty("webdriver.chrome.chromeDriver", exePath + "chromedriver.exe");
+        chromeDriver = new ChromeDriver();
+        chromeDriver.manage().window().maximize();
 
-        wait = new FluentWait<WebDriver>(internetExplorerDriver);
+        wait = new FluentWait<WebDriver>(chromeDriver);
         wait.withTimeout(15, TimeUnit.SECONDS).pollingEvery(500, TimeUnit.MILLISECONDS);
 
     }
 
     @After
     public void quitDriver() {
-        internetExplorerDriver.quit();
+    	chromeDriver.quit();
     }
 
-    /*
-     * Cannot find any elements in Selenium using Internet Explorer Driver
-     *
-     * For those experiencing the issue on IE11, here is why: Microsoft released
-     * update KB3025390 via Windows Update[1] as part of its normal
-     * "patch Tuesday" update cycle. For most users, this update is downloaded
-     * and installed without user interaction. This update breaks the IE driver
-     * when using it with IE11.
-     * https://groups.google.com/forum/m/#!topic/selenium-users/TdY_rRNF-gw
-     */
-
     @Test
-    public void task4_collectLinks_IE() {
-        internetExplorerDriver.get("https://en.wikipedia.org/wiki/Main_Page");
+    public void task4_collectLinks() {
+    	chromeDriver.get("https://en.wikipedia.org/wiki/Main_Page");
 
-        wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("#n-mainpage-description")));
-        List<WebElement> links = internetExplorerDriver.findElements(By.tagName("a"));
+        wait.until(ExpectedConditions.elementToBeClickable(By.id("n-mainpage-description")));
+        List<WebElement> links = chromeDriver.findElements(By.tagName("a"));
         for (WebElement element : links) {
-            System.out.println(element.getText());
+            System.out.println(element.getAttribute("href"));
         }
     }
 
