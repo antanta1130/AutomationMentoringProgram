@@ -1,35 +1,31 @@
 package com.tasks.task14.pages;
 
-import java.util.List;
-
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+
+import com.tasks.task14.utils.MyFluentWait;
 
 public class GoogleSearchPage {
-@FindBy(id = "lst-ib")
-private WebElement searchInputField;
+    private final WebDriver driver;
 
-@FindBy(xpath = "//*[@id='ires']")
-private WebElement resultContainer;
+    @FindBy(id = "lst-ib")
+    private WebElement searchInputField;
 
-@FindBy(xpath = "//*[@id='ires']//cite[@class='_Rm']")
-private List<WebElement> links;
+    public GoogleSearchPage(WebDriver driver) {
+        this.driver = driver;
+    }
 
-@FindBy(id = "pnnext")
-private WebElement nextPageButton;
-
-private final WebDriver driver;
-
-public GoogleSearchPage(WebDriver driver){
-	this.driver = driver;
-}
-
-public GoogleSearchResutlPage search(String searchText){
-	searchInputField.sendKeys(searchText);
-	searchInputField.sendKeys(Keys.ENTER);
-	return new GoogleSearchResutlPage();
-}
+    public GoogleSearchResultPage search(String searchText) {
+        driver.get("https://www.google.com.ua/");
+        MyFluentWait.wait(driver).until(ExpectedConditions.elementToBeClickable(searchInputField));
+        searchInputField.sendKeys(searchText);
+        searchInputField.sendKeys(Keys.ENTER);
+        MyFluentWait.wait(driver).until(ExpectedConditions.urlContains("search"));
+        return PageFactory.initElements(driver, GoogleSearchResultPage.class);
+    }
 
 }
