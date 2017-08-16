@@ -11,8 +11,8 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.tasks.task14.searcher.ScreenShotTaker;
 import com.tasks.task14.utils.MyFluentWait;
+import com.tasks.task14.utils.ScreenShotTaker;
 
 public class GoogleSearchResultPage {
 
