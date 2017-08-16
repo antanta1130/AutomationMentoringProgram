@@ -27,7 +27,7 @@ public class Task2 {
 
     private WebDriver chromeDriver;
     private FluentWait<WebDriver> wait;
-    private final String exePath = "D:\\AutomationMentoringProgram\\";
+    private final String exePath = "C:\\Users\\Tetiana\\Documents\\AutomationMentoringProgram\\";
 
     @Before
     public void createDriver() {
@@ -55,22 +55,20 @@ public class Task2 {
 
         ((JavascriptExecutor) chromeDriver).executeScript("arguments[0].scrollIntoView();", image);
 
+        File scr1 = ((TakesScreenshot) chromeDriver).getScreenshotAs(OutputType.FILE);
 
-            File scr1 = ((TakesScreenshot) chromeDriver).getScreenshotAs(OutputType.FILE);
+        BufferedImage fullImg = ImageIO.read(scr1);
+        Point point = image.getLocation();
+        Dimension size = image.getSize();
 
-            BufferedImage fullImg = ImageIO.read(scr1);
-            Point point = image.getLocation();
-            Dimension size = image.getSize();
+        BufferedImage elementScreenshot = fullImg.getSubimage(point.getX(), 0, size.getWidth(), size.getHeight());
+        ImageIO.write(elementScreenshot, "png", scr1);
 
-            BufferedImage elementScreenshot = fullImg.getSubimage(point.getX(), 0, size.getWidth(), size.getHeight());
-            ImageIO.write(elementScreenshot, "png", scr1);
-
-            try {
-                FileUtils.copyFile(scr1, new File(exePath + "screenShots\\" + System.currentTimeMillis() + ".png"));
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        
+        try {
+            FileUtils.copyFile(scr1, new File(exePath + "screenShots\\" + System.currentTimeMillis() + ".png"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
     }
 
@@ -85,20 +83,18 @@ public class Task2 {
         ((JavascriptExecutor) chromeDriver).executeScript("arguments[0].scrollIntoView();", image);
         Thread.sleep(800);
 
-            File scr1 = ((TakesScreenshot) chromeDriver).getScreenshotAs(OutputType.FILE);
+        File scr1 = ((TakesScreenshot) chromeDriver).getScreenshotAs(OutputType.FILE);
 
-            BufferedImage fullImg = ImageIO.read(scr1);
+        BufferedImage fullImg = ImageIO.read(scr1);
 
-            BufferedImage elementScreenshot = fullImg.getSubimage(image.getLocation().getX(), 0, image.getSize().getWidth(),
-                    helper.getLocation().getY() - image.getLocation().getY());
-            ImageIO.write(elementScreenshot, "png", scr1);
+        BufferedImage elementScreenshot = fullImg.getSubimage(image.getLocation().getX(), 0, image.getSize().getWidth(), helper.getLocation().getY() - image.getLocation().getY());
+        ImageIO.write(elementScreenshot, "png", scr1);
 
-            try {
-                FileUtils.copyFile(scr1, new File(exePath + "screenShots\\" + System.currentTimeMillis() + ".png"));
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        
+        try {
+            FileUtils.copyFile(scr1, new File(exePath + "screenShots\\" + System.currentTimeMillis() + ".png"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
     }
 

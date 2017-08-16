@@ -15,8 +15,7 @@ public class Task1 {
 
     private WebDriver chromeDriver;
     private FluentWait<WebDriver> wait;
-    private final String exePath = "D:\\AutomationMentoringProgram\\";
-    //private final String exePath = "C:\\Users\\Tetiana\\Documents\\AutomationMentoringProgram\\";
+    private final String exePath = "C:\\Users\\Tetiana\\Documents\\AutomationMentoringProgram\\";
 
     @Before
     public void createDriver() {

@@ -13,12 +13,10 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
 
-
-
 public class Task3 {
     private WebDriver chromeDriver;
     private FluentWait<WebDriver> wait;
-    private final String exePath = "D:\\AutomationMentoringProgram\\";
+    private final String exePath = "C:\\Users\\Tetiana\\Documents\\AutomationMentoringProgram\\";
 
     @Before
     public void createDriver() {
@@ -33,12 +31,12 @@ public class Task3 {
 
     @After
     public void quitDriver() {
-    	chromeDriver.quit();
+        chromeDriver.quit();
     }
 
     @Test
     public void task3_collectLinks() {
-    	chromeDriver.get("https://en.wikipedia.org/wiki/Main_Page");
+        chromeDriver.get("https://en.wikipedia.org/wiki/Main_Page");
 
         wait.until(ExpectedConditions.elementToBeClickable(By.id("n-mainpage-description")));
         List<WebElement> links = chromeDriver.findElements(By.tagName("a"));
