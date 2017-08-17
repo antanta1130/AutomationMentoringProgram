@@ -23,6 +23,12 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
 
+/*
+ * 1.Navigateto https://en.wikipedia.org/wiki/Main_Page
+ * 2.Take Screenshot of the first Image  in the “Did you know...” container
+ * 3.Take Screenshot of the “In the news” container
+ */
+
 public class Task2 {
 
     private WebDriver chromeDriver;

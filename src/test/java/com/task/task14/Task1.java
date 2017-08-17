@@ -11,6 +11,16 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
 
+/*
+ * 1.Launch new Browser
+ * 2.Open URL http://facebook.com
+ * 3.Type Login 
+ * 4.Type Password 
+ * 5.Click on ¬ход button
+ * 6.Check that you have logged in
+ * 7.Close the Browser
+ */
+
 public class Task1 {
 
     private WebDriver chromeDriver;

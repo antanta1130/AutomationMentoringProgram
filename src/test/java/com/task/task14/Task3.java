@@ -13,6 +13,15 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
 
+/*
+ * 1.Initialize IE Driver
+ * 2.Navigateto the interested webpage for e.g. https://en.wikipedia.org/wiki/Main_Page
+ * 3.Create a list of type WebElement to store all the Link elements in to it.
+ * 4.Collect all the links from the webpage. All the links are associated with the Tag ‘a‘.
+ * 5.Nowiterate through every link and print the Link Text on the console screen.
+ * 
+ */
+
 public class Task3 {
     private WebDriver chromeDriver;
     private FluentWait<WebDriver> wait;
