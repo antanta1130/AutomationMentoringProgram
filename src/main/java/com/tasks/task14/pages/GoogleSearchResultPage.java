@@ -39,14 +39,18 @@ public class GoogleSearchResultPage {
         this.driver = driver;
     }
 
-    public GoogleSearchResultPage clickNextPageButton() {
+    public GoogleSearchResultPage clickNextPageButton(){
+    	log.debug("click NextPage Button");
+ 
         MyFluentWait.wait(driver).until(ExpectedConditions.elementToBeClickable(nextPageButton));
         nextPageButton.click();
-        MyFluentWait.wait(driver).until(ExpectedConditions.visibilityOf(resultStats));
+        MyFluentWait.wait(driver).until(ExpectedConditions.visibilityOf(resultStats));                   
         return PageFactory.initElements(driver, GoogleSearchResultPage.class);
+
     }
 
     public int linkIsPresentOnCurrentPage(String expectedUrl) {
+    	
         for (WebElement el : links) {
             if (el.getText().contains(expectedUrl)) {
                 try {
@@ -54,9 +58,13 @@ public class GoogleSearchResultPage {
                 } catch (IOException e) {
                     log.error("Cannot take screenshot of web element");
                 }
+                log.info("Link is found on {} page", getCurrentPageNumber());
                 return getCurrentPageNumber();
             }
         }
+        
+        log.info("Link is not found on {} page", getCurrentPageNumber());
+    	
         return -1;
     }
 

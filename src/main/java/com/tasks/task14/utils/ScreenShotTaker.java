@@ -11,8 +11,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 public class ScreenShotTaker {
-
-    private final static String exePath = "C:\\Users\\Tetiana\\Documents\\AutomationMentoringProgram\\";
+	
+	private final static String exePath = "C:\\Users\\Tetiana\\Documents\\AutomationMentoringProgram\\";
 
     public static File takeScreenshot(WebDriver driver, WebElement el) throws IOException {
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView();", el);
