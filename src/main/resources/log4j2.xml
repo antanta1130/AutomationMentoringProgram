@@ -1,12 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Configuration>
 
-	<Properties>
-		<Property name="LoginLogPath">logs/person.log</Property>
-	</Properties>
-
 	<Appenders>
-		<File name="A1" fileName="${LoginLogPath}" append="false">
+		<File name="A1" fileName="logs/log-${date:yyyy-MM-dd_HH_mm}.log" append="false">
 			<PatternLayout
 				pattern="%-5p %d{yyyy-MM-dd HH:mm:ss.ms} [%t] %c{1} %L - %m%n" />
 		</File>
