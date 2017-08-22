@@ -22,6 +22,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /*
  * 1.Navigateto https://en.wikipedia.org/wiki/Main_Page
@@ -33,7 +35,9 @@ public class Task2 {
 
     private WebDriver chromeDriver;
     private FluentWait<WebDriver> wait;
-    private final String exePath = "C:\\Users\\Tetiana\\Documents\\AutomationMentoringProgram\\";
+    //private final String exePath = "C:\\Users\\Tetiana\\Documents\\AutomationMentoringProgram\\";
+    private final String exePath = "D:\\AutomationMentoringProgram\\";
+    private static final Logger log = LoggerFactory.getLogger(Task2.class);
 
     @Before
     public void createDriver() {
@@ -54,6 +58,7 @@ public class Task2 {
 
     @Test
     public void task2_1_takeScreenShots() throws Throwable {
+    	log.info("task2.1: Take Screenshot of the \"In the news\" container");
         chromeDriver.get("https://en.wikipedia.org/wiki/Main_Page");
 
         wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id='mp-left']//img")));
@@ -72,14 +77,16 @@ public class Task2 {
 
         try {
             FileUtils.copyFile(scr1, new File(exePath + "screenShots\\" + System.currentTimeMillis() + ".png"));
+            log.info("Screenshot has been taken");
         } catch (IOException e) {
-            e.printStackTrace();
+            log.error(e.getMessage());
         }
 
     }
 
     @Test
     public void task2_2_takeScreenShots() throws Throwable {
+    	log.info("task2.2: Take Screenshot of the first Image in the \"Did you know...\" container");
         chromeDriver.get("https://en.wikipedia.org/wiki/Main_Page");
 
         wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id='mp-right']")));
@@ -98,8 +105,9 @@ public class Task2 {
 
         try {
             FileUtils.copyFile(scr1, new File(exePath + "screenShots\\" + System.currentTimeMillis() + ".png"));
+            log.info("Screenshot has been taken");
         } catch (IOException e) {
-            e.printStackTrace();
+        	log.error(e.getMessage());
         }
 
     }

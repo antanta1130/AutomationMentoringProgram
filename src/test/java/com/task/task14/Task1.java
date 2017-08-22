@@ -6,10 +6,14 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.testng.Assert;
 
 /*
  * 1.Launch new Browser
@@ -26,6 +30,7 @@ public class Task1 {
     private WebDriver chromeDriver;
     private FluentWait<WebDriver> wait;
     private final String exePath = "C:\\Users\\Tetiana\\Documents\\AutomationMentoringProgram\\";
+    private static final Logger log = LoggerFactory.getLogger(Task1.class);
 
     @Before
     public void createDriver() {
@@ -44,6 +49,7 @@ public class Task1 {
 
     @Test
     public void task1_testLogin() {
+    	log.info("task1.1: http://facebook.com, check that you have logged in");
         chromeDriver.get("https://facebook.com");
 
         chromeDriver.findElement(By.id("email")).clear();
@@ -53,7 +59,13 @@ public class Task1 {
         chromeDriver.findElement(By.id("pass")).sendKeys("1q2w3e4r5t");
 
         chromeDriver.findElement(By.xpath("//input[@type='submit']")).click();
+        
+        try{
         wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@id='blueBarDOMInspector']//a[@data-testid='blue_bar_profile_link']/span")));
+        } catch(NoSuchElementException ex){
+        	log.equals(ex.getMessage());
+        	Assert.fail();
+        }
 
     }
 
