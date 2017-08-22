@@ -35,8 +35,7 @@ public class Task2 {
 
     private WebDriver chromeDriver;
     private FluentWait<WebDriver> wait;
-    //private final String exePath = "C:\\Users\\Tetiana\\Documents\\AutomationMentoringProgram\\";
-    private final String exePath = "D:\\AutomationMentoringProgram\\";
+    private final String exePath = "C:\\Users\\Tetiana\\Documents\\AutomationMentoringProgram\\";
     private static final Logger log = LoggerFactory.getLogger(Task2.class);
 
     @Before
