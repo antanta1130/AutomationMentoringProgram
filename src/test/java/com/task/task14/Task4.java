@@ -53,7 +53,7 @@ public class Task4 {
     public void testSearchOnNthPage() {
         // link and page should be changed according to your search results
     	log.info("test2: link is located on Nth page - link and page SHOULD BE CHANGED according to your search results");
-    	Assert.assertEquals(14, linkSearcher.search(chromeDriver, "осциkлограф", "gs-systems.ru"));
+    	Assert.assertEquals(14, linkSearcher.search(chromeDriver, "осциллограф", "gs-systems.ru"));
     }
 
     @Test
