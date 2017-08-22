@@ -17,7 +17,6 @@ import com.tasks.task14.utils.ScreenShotTaker;
 public class GoogleSearchResultPage {
 
     private static final Logger log = LoggerFactory.getLogger(GoogleSearchResultPage.class);
-
     private final WebDriver driver;
 
     @FindBy(xpath = "//*[@id='ires']")

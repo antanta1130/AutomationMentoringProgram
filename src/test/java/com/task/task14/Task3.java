@@ -12,20 +12,24 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /*
  * 1.Initialize IE Driver
- * 2.Navigateto the interested webpage for e.g. https://en.wikipedia.org/wiki/Main_Page
+ * 2.Navigate to the interested web page for e.g. https://en.wikipedia.org/wiki/Main_Page
  * 3.Create a list of type WebElement to store all the Link elements in to it.
- * 4.Collect all the links from the webpage. All the links are associated with the Tag ‘a‘.
- * 5.Nowiterate through every link and print the Link Text on the console screen.
+ * 4.Collect all the links from the web page. All the links are associated with the Tag 'a'.
+ * 5.Now iterate through every link and print the Link Text on the console screen.
  * 
  */
 
 public class Task3 {
     private WebDriver chromeDriver;
     private FluentWait<WebDriver> wait;
-    private final String exePath = "C:\\Users\\Tetiana\\Documents\\AutomationMentoringProgram\\";
+    //private final String exePath = "C:\\Users\\Tetiana\\Documents\\AutomationMentoringProgram\\";
+    private final String exePath = "D:\\AutomationMentoringProgram\\";
+    private static final Logger log = LoggerFactory.getLogger(Task3.class);
 
     @Before
     public void createDriver() {
@@ -45,12 +49,13 @@ public class Task3 {
 
     @Test
     public void task3_collectLinks() {
+    	log.info("task3.1: Collect all the links from the web page");
         chromeDriver.get("https://en.wikipedia.org/wiki/Main_Page");
 
         wait.until(ExpectedConditions.elementToBeClickable(By.id("n-mainpage-description")));
         List<WebElement> links = chromeDriver.findElements(By.tagName("a"));
         for (WebElement element : links) {
-            System.out.println(element.getAttribute("href"));
+        	log.info(element.getAttribute("href"));
         }
     }
 
