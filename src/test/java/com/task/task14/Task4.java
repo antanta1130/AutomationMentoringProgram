@@ -25,7 +25,7 @@ import com.tasks.task14.searcher.LinkSearcher;
  *
  * Example:
  * 1. We  enter selenium automation testing and find that â€œseleniumhq.orgâ€  is on the 1st page
- * 2. We  enter îññöèëîãğàô and find that vit.ua  is on the 17th page
+ * 2. We  enter something and find link is on the Nth page
  * 3. We enter something and find that kpi.ua is not in the search results
  *
  */
@@ -45,26 +45,26 @@ public class Task4 {
 
     @Test
     public void testSearchOn1Page() {
-    	log.info("test1: link is located on 1st page");
+        log.info("test1: link is located on 1st page");
         Assert.assertEquals(1, linkSearcher.search(chromeDriver, "selenium automation testing", "seleniumhq.org"));
     }
 
     @Test
     public void testSearchOnNthPage() {
         // link and page should be changed according to your search results
-    	log.info("test2: link is located on Nth page - link and page SHOULD BE CHANGED according to your search results");
-    	Assert.assertEquals(14, linkSearcher.search(chromeDriver, "îñöèëëîãğàô", "gs-systems.ru"));
+        log.info("test2: link is located on Nth page - link and page SHOULD BE CHANGED according to your search results");
+        Assert.assertEquals(13, linkSearcher.search(chromeDriver, "maven java", "maven.fabric8.io"));
     }
 
     @Test
     public void testSearchNotFoundWhenNextButtonIsNotFound() {
-    	log.info("test3: link is is not found because of dissapearing of next page button");
+        log.info("test3: link is is not found because of dissapearing of next page button");
         Assert.assertEquals(-1, linkSearcher.search(chromeDriver, "asgfdjj,kj", "kpi.ua"));
     }
-    
+
     @Test
     public void testSearchNotFoundUsingMaxPagesCount() {
-    	log.info("test4: link is is not found on MAX_NUMBERS_OF_PAGES");
+        log.info("test4: link is is not found on MAX_NUMBERS_OF_PAGES");
         Assert.assertEquals(-1, linkSearcher.search(chromeDriver, "cat", "kpi.ua"));
     }
 

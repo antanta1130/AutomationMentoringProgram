@@ -26,7 +26,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /*
- * 1.Navigateto https://en.wikipedia.org/wiki/Main_Page
+ * 1.Navigate to https://en.wikipedia.org/wiki/Main_Page
  * 2.Take Screenshot of the first Image  in the “Did you know...” container
  * 3.Take Screenshot of the “In the news” container
  */
@@ -57,7 +57,7 @@ public class Task2 {
 
     @Test
     public void task2_1_takeScreenShots() throws Throwable {
-    	log.info("task2.1: Take Screenshot of the \"In the news\" container");
+        log.info("task2.1: Take Screenshot of the \"In the news\" container");
         chromeDriver.get("https://en.wikipedia.org/wiki/Main_Page");
 
         wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id='mp-left']//img")));
@@ -75,8 +75,9 @@ public class Task2 {
         ImageIO.write(elementScreenshot, "png", scr1);
 
         try {
-            FileUtils.copyFile(scr1, new File(exePath + "screenShots\\" + System.currentTimeMillis() + ".png"));
-            log.info("Screenshot has been taken");
+            String fileName = exePath + "screenShots\\" + System.currentTimeMillis() + ".png";
+            FileUtils.copyFile(scr1, new File(fileName));
+            log.info("Screenshot has been taken: " + fileName);
         } catch (IOException e) {
             log.error(e.getMessage());
         }
@@ -85,7 +86,7 @@ public class Task2 {
 
     @Test
     public void task2_2_takeScreenShots() throws Throwable {
-    	log.info("task2.2: Take Screenshot of the first Image in the \"Did you know...\" container");
+        log.info("task2.2: Take Screenshot of the first Image in the \"Did you know...\" container");
         chromeDriver.get("https://en.wikipedia.org/wiki/Main_Page");
 
         wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id='mp-right']")));
@@ -103,10 +104,11 @@ public class Task2 {
         ImageIO.write(elementScreenshot, "png", scr1);
 
         try {
-            FileUtils.copyFile(scr1, new File(exePath + "screenShots\\" + System.currentTimeMillis() + ".png"));
-            log.info("Screenshot has been taken");
+            String fileName = exePath + "screenShots\\" + System.currentTimeMillis() + ".png";
+            FileUtils.copyFile(scr1, new File(fileName));
+            log.info("Screenshot has been taken: " + fileName);
         } catch (IOException e) {
-        	log.error(e.getMessage());
+            log.error(e.getMessage());
         }
 
     }
