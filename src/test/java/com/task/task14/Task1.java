@@ -18,9 +18,9 @@ import org.testng.Assert;
 /*
  * 1.Launch new Browser
  * 2.Open URL http://facebook.com
- * 3.Type Login 
- * 4.Type Password 
- * 5.Click on ¬ход button
+ * 3.Type Login
+ * 4.Type Password
+ * 5.Click on Login button
  * 6.Check that you have logged in
  * 7.Close the Browser
  */
@@ -49,7 +49,7 @@ public class Task1 {
 
     @Test
     public void task1_testLogin() {
-    	log.info("task1.1: http://facebook.com, check that you have logged in");
+        log.info("task1.1: http://facebook.com, check that you have logged in");
         chromeDriver.get("https://facebook.com");
 
         chromeDriver.findElement(By.id("email")).clear();
@@ -59,12 +59,12 @@ public class Task1 {
         chromeDriver.findElement(By.id("pass")).sendKeys("1q2w3e4r5t");
 
         chromeDriver.findElement(By.xpath("//input[@type='submit']")).click();
-        
-        try{
-        wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@id='blueBarDOMInspector']//a[@data-testid='blue_bar_profile_link']/span")));
-        } catch(NoSuchElementException ex){
-        	log.equals(ex.getMessage());
-        	Assert.fail();
+
+        try {
+            wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@id='blueBarDOMInspector']//a[@data-testid='blue_bar_profile_link']/span")));
+        } catch (NoSuchElementException ex) {
+            log.equals(ex.getMessage());
+            Assert.fail();
         }
 
     }
