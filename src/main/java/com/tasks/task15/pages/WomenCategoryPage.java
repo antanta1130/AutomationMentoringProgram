@@ -1,6 +1,5 @@
 package com.tasks.task15.pages;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.openqa.selenium.NoSuchElementException;
@@ -21,45 +20,28 @@ public class WomenCategoryPage extends Page {
     private WebElement selectElement;
     private Select sortByDropdown;
 
-    @FindBy(xpath = "//*[@id='center_column']/ul/li/div[@class='product-container']")
-    private List<WebElement> listOfProducts;
+    @FindBy(xpath= "//*[@id='center_column']/ul")
+    private WebElement productListContainer;
 
     public WomenCategoryPage(WebDriver driver) {
         super(driver);
     }
 
-    public WomenCategoryPage sortBy(String option) {
-        log.info("sort by method");
-
+    public List<ProductPageElement> sortBy(String option) {
         sortByDropdown = new Select(selectElement);
         sortByDropdown.selectByVisibleText(option);
+        
+        log.info("sort by: {}", option);
 
         try {
-            MyFluentWait.wait(driver).until(ExpectedConditions.invisibilityOf(selectElement));
+            MyFluentWait.wait(driver).until(ExpectedConditions.attributeToBe(productListContainer, "style", "opacity: 1;"));
         } catch (NoSuchElementException ex) {
             log.error("waiter exception, dropdown list is visible");
             log.error(ex.getMessage());
             throw ex;
         }
-
-        WomenCategoryPage w = new WomenCategoryPage(driver);
-
-        for (ProductPageElement el : extractProductData()) {
-            el.getProduct();
-        }
-
-        return w;
-
-    }
-
-    private List<ProductPageElement> extractProductData() {
-        List<ProductPageElement> products = new ArrayList<ProductPageElement>();
-
-        for (WebElement product : listOfProducts) {
-            products.add(new ProductPageElement(product));
-        }
-
-        return products;
+        
+        return new ListOfProducts(productListContainer).fillProductList();
     }
 
 }

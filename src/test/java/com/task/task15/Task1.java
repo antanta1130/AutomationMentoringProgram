@@ -12,18 +12,9 @@ import org.slf4j.LoggerFactory;
 import com.tasks.task15.pages.StoreMainPage;
 import com.tasks.task15.pages.WomenCategoryPage;
 
-/*
- * 1.Initialize IE Driver
- * 2.Navigate to the interested web page for e.g. https://en.wikipedia.org/wiki/Main_Page
- * 3.Create a list of type WebElement to store all the Link elements in to it.
- * 4.Collect all the links from the web page. All the links are associated with the Tag 'a'.
- * 5.Now iterate through every link and print the Link Text on the console screen.
- *
- */
-
 public class Task1 {
     private WebDriver chromeDriver;
-    private final String exePath = "C:\\Users\\Tetiana\\Documents\\AutomationMentoringProgram\\";
+    private final String exePath = "D:\\AutomationMentoringProgram\\";
     private static final Logger log = LoggerFactory.getLogger(Task1.class);
 
     @Before
