@@ -1,5 +1,8 @@
 package com.task.task15;
 
+import java.util.Arrays;
+import java.util.List;
+
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -11,11 +14,15 @@ import org.slf4j.LoggerFactory;
 
 import com.tasks.task15.pages.StoreMainPage;
 import com.tasks.task15.pages.WomenCategoryPage;
+import static org.junit.Assert.*;
+import static org.hamcrest.CoreMatchers.*;
 
 public class Task1 {
     private WebDriver chromeDriver;
     private final String exePath = "D:\\AutomationMentoringProgram\\";
     private static final Logger log = LoggerFactory.getLogger(Task1.class);
+    private static final List<String> expectedPriceArraySortingOrderAsc = Arrays.asList("16.40", "16.51", "26.00", "27.00", "28.98", "30.50", "50.99");
+    
 
     @Before
     public void createDriver() {
@@ -36,9 +43,10 @@ public class Task1 {
         WomenCategoryPage womenCategoryPage = PageFactory.initElements(chromeDriver, StoreMainPage.class).open().clickMenuItem();
 
         // WHEN
-        womenCategoryPage.sortBy("Price: Lowest first");
+        List<String> actualPriceArraySortingOrderAsc = womenCategoryPage.sortBy("Price: Lowest first").getListOfPrices();
 
         // THEN
+        assertThat(actualPriceArraySortingOrderAsc, is(expectedPriceArraySortingOrderAsc));
     }
 
 }

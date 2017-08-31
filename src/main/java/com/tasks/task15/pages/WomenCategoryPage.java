@@ -1,7 +1,5 @@
 package com.tasks.task15.pages;
 
-import java.util.List;
-
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -18,7 +16,7 @@ public class WomenCategoryPage extends Page {
 
     @FindBy(id = "selectProductSort")
     private WebElement selectElement;
-    private Select sortByDropdown;
+    private Select sortByDropdown = new Select(selectElement);;
 
     @FindBy(xpath= "//*[@id='center_column']/ul")
     private WebElement productListContainer;
@@ -27,8 +25,7 @@ public class WomenCategoryPage extends Page {
         super(driver);
     }
 
-    public List<ProductPageElement> sortBy(String option) {
-        sortByDropdown = new Select(selectElement);
+    public ListOfProducts sortBy(String option) {
         sortByDropdown.selectByVisibleText(option);
         
         log.info("sort by: {}", option);
@@ -41,7 +38,7 @@ public class WomenCategoryPage extends Page {
             throw ex;
         }
         
-        return new ListOfProducts(productListContainer).fillProductList();
+        return new ListOfProducts(productListContainer);
     }
 
 }
