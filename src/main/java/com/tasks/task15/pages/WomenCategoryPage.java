@@ -17,13 +17,13 @@ public class WomenCategoryPage extends Page {
 
     @FindBy(id = "selectProductSort")
     private WebElement selectElement;
-    private Select sortByDropdown = new Select(selectElement);;
+    private final Select sortByDropdown = new Select(selectElement);;
 
-    @FindBy(xpath= "//*[@id='center_column']/ul")
+    @FindBy(xpath = "//*[@id='center_column']/ul")
     private WebElement productListContainer;
-    
-    @FindBy(id="ul_layered_id_attribute_group_3")
-    private WebElement colorMenuContainer; 
+
+    @FindBy(id = "ul_layered_id_attribute_group_3")
+    private WebElement colorMenuContainer;
 
     public WomenCategoryPage(WebDriver driver) {
         super(driver);
@@ -31,34 +31,32 @@ public class WomenCategoryPage extends Page {
 
     public ListOfProducts sortBy(String option) {
         sortByDropdown.selectByVisibleText(option);
-        
-        log.info("sort by: {}", option);
 
-        try {
-            MyFluentWait.wait(driver).until(ExpectedConditions.attributeToBe(productListContainer, "style", "opacity: 1;"));
-        } catch (NoSuchElementException ex) {
-            log.error("waiter exception, dropdown list is visible");
-            log.error(ex.getMessage());
-            throw ex;
-        }
-        
+        log.info("sort by: {}", option);
+        waitContainerWithProductsToBeLoaded();
         return new ListOfProducts(productListContainer);
     }
-    
-    public ListOfProducts clickOnColorMenuItem(final String item){
-    	colorMenuContainer.findElement(By.partialLinkText(item));
-    	
-    	log.info("selected color: {}", item);
 
+    public ListOfProducts clickOnColorMenuItem(final String item) {
+        colorMenuContainer.findElement(By.partialLinkText(item)).click();
+
+        log.info("selected color: {}", item);
+        waitContainerWithProductsToBeLoaded();
+        return new ListOfProducts(productListContainer);
+    }
+
+    public int getNumberOfProductsFromColorMenuItems(final String item) {
+        return Integer.parseInt(colorMenuContainer.findElement(By.partialLinkText(item)).findElement(By.tagName("span")).getText().replace("(", "").replace(")", ""));
+    }
+
+    private void waitContainerWithProductsToBeLoaded() {
         try {
             MyFluentWait.wait(driver).until(ExpectedConditions.attributeToBe(productListContainer, "style", "opacity: 1;"));
         } catch (NoSuchElementException ex) {
-            log.error("waiter exception, dropdown list is visible");
+            log.error("waiter exception");
             log.error(ex.getMessage());
             throw ex;
         }
-        
-    	return new ListOfProducts(productListContainer);
     }
 
 }
