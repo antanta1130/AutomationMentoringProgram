@@ -11,12 +11,12 @@ import org.slf4j.LoggerFactory;
 
 public class ListOfProducts {
     private WebElement productListContainer;
-    private List<ProductPageElement> listOfProducts;
+    private List<ProductPageElement> listOfProducts = new ArrayList<ProductPageElement>();;
     private static final Logger log = LoggerFactory.getLogger(ListOfProducts.class);
 
     public ListOfProducts(WebElement productListContainer) {
         this.productListContainer = productListContainer;
-        listOfProducts = new ArrayList<ProductPageElement>();
+        fillProductList();
     }
 
     private String getProductName(final WebElement elem) {
@@ -37,20 +37,27 @@ public class ListOfProducts {
         return colors;
     }
 
-    public List<ProductPageElement> fillProductList() {
+    private void fillProductList() {
     	List<WebElement> tempListOfProducts = new ArrayList<WebElement>();
     	tempListOfProducts = productListContainer.findElements(By.className("right-block"));
     	
     	for(WebElement elem : tempListOfProducts){
     		listOfProducts.add(new ProductPageElement(getProductName(elem), getPrice(elem), getListOfColors(elem)));
     		log.info("name: {}, price {}, colors {}", getProductName(elem), getPrice(elem), getListOfColors(elem));
+    	}   
+    }
+    
+    public List<String> getListOfPrices(){
+    	List<String> prices = new ArrayList<String>();
+    	
+    	for (ProductPageElement pr : listOfProducts){
+    		prices.add(pr.getPrice());
     	}
     	
-        return listOfProducts;
+    	return prices;
     }
-
-	public List<ProductPageElement> getListOfProducts() {
-		return listOfProducts;
-	}
-
+    
+    public int getSize(){
+    	return listOfProducts.size();
+    }
 }

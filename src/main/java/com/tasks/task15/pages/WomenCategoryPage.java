@@ -1,7 +1,6 @@
 package com.tasks.task15.pages;
 
-import java.util.List;
-
+import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -18,17 +17,19 @@ public class WomenCategoryPage extends Page {
 
     @FindBy(id = "selectProductSort")
     private WebElement selectElement;
-    private Select sortByDropdown;
+    private Select sortByDropdown = new Select(selectElement);;
 
     @FindBy(xpath= "//*[@id='center_column']/ul")
     private WebElement productListContainer;
+    
+    @FindBy(id="ul_layered_id_attribute_group_3")
+    private WebElement colorMenuContainer; 
 
     public WomenCategoryPage(WebDriver driver) {
         super(driver);
     }
 
-    public List<ProductPageElement> sortBy(String option) {
-        sortByDropdown = new Select(selectElement);
+    public ListOfProducts sortBy(String option) {
         sortByDropdown.selectByVisibleText(option);
         
         log.info("sort by: {}", option);
@@ -41,7 +42,23 @@ public class WomenCategoryPage extends Page {
             throw ex;
         }
         
-        return new ListOfProducts(productListContainer).fillProductList();
+        return new ListOfProducts(productListContainer);
+    }
+    
+    public ListOfProducts clickOnColorMenuItem(final String item){
+    	colorMenuContainer.findElement(By.partialLinkText(item));
+    	
+    	log.info("selected color: {}", item);
+
+        try {
+            MyFluentWait.wait(driver).until(ExpectedConditions.attributeToBe(productListContainer, "style", "opacity: 1;"));
+        } catch (NoSuchElementException ex) {
+            log.error("waiter exception, dropdown list is visible");
+            log.error(ex.getMessage());
+            throw ex;
+        }
+        
+    	return new ListOfProducts(productListContainer);
     }
 
 }
