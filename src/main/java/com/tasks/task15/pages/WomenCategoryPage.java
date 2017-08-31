@@ -1,5 +1,6 @@
 package com.tasks.task15.pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -20,6 +21,9 @@ public class WomenCategoryPage extends Page {
 
     @FindBy(xpath= "//*[@id='center_column']/ul")
     private WebElement productListContainer;
+    
+    @FindBy(id="ul_layered_id_attribute_group_3")
+    private WebElement colorMenuContainer; 
 
     public WomenCategoryPage(WebDriver driver) {
         super(driver);
@@ -39,6 +43,22 @@ public class WomenCategoryPage extends Page {
         }
         
         return new ListOfProducts(productListContainer);
+    }
+    
+    public ListOfProducts clickOnColorMenuItem(final String item){
+    	colorMenuContainer.findElement(By.partialLinkText(item));
+    	
+    	log.info("selected color: {}", item);
+
+        try {
+            MyFluentWait.wait(driver).until(ExpectedConditions.attributeToBe(productListContainer, "style", "opacity: 1;"));
+        } catch (NoSuchElementException ex) {
+            log.error("waiter exception, dropdown list is visible");
+            log.error(ex.getMessage());
+            throw ex;
+        }
+        
+    	return new ListOfProducts(productListContainer);
     }
 
 }

@@ -56,4 +56,8 @@ public class ListOfProducts {
     	
     	return prices;
     }
+    
+    public int getSize(){
+    	return listOfProducts.size();
+    }
 }
