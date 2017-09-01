@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -33,6 +34,6 @@ public class StoreMainPage extends Page {
         menuItem1.click();
         MyFluentWait.wait(driver).until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.id("center_column")));
         log.info("Transfer to {} category page", menuItem1.getText());
-        return new WomenCategoryPage(driver);
+        return PageFactory.initElements(driver, WomenCategoryPage.class);
     }
 }

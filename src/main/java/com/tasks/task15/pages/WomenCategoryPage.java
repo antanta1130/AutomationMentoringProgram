@@ -17,9 +17,9 @@ public class WomenCategoryPage extends Page {
 
     @FindBy(id = "selectProductSort")
     private WebElement selectElement;
-    private final Select sortByDropdown = new Select(selectElement);;
+    private final Select sortByDropdown = new Select(selectElement);
 
-    @FindBy(xpath = "//*[@id='center_column']/ul")
+    @FindBy(id="center_column")
     private WebElement productListContainer;
 
     @FindBy(id = "ul_layered_id_attribute_group_3")
@@ -33,30 +33,37 @@ public class WomenCategoryPage extends Page {
         sortByDropdown.selectByVisibleText(option);
 
         log.info("sort by: {}", option);
-        waitContainerWithProductsToBeLoaded();
-        return new ListOfProducts(productListContainer);
+        
+        try {
+            MyFluentWait.wait(driver).until(ExpectedConditions.attributeToBe(productListContainer.findElement(By.className("product_list")), "style", "opacity: 1;"));
+        } catch (NoSuchElementException ex) {
+            log.error("waiter exception");
+            log.error(ex.getMessage());
+            throw ex;
+        }
+        
+        return new ListOfProducts(productListContainer.findElement(By.className("product_list")));
     }
 
     public ListOfProducts clickOnColorMenuItem(final String item) {
         colorMenuContainer.findElement(By.partialLinkText(item)).click();
 
         log.info("selected color: {}", item);
-        waitContainerWithProductsToBeLoaded();
-        return new ListOfProducts(productListContainer);
-    }
-
-    public int getNumberOfProductsFromColorMenuItems(final String item) {
-        return Integer.parseInt(colorMenuContainer.findElement(By.partialLinkText(item)).findElement(By.tagName("span")).getText().replace("(", "").replace(")", ""));
-    }
-
-    private void waitContainerWithProductsToBeLoaded() {
+        
         try {
-            MyFluentWait.wait(driver).until(ExpectedConditions.attributeToBe(productListContainer, "style", "opacity: 1;"));
+            MyFluentWait.wait(driver).until(ExpectedConditions.invisibilityOf(selectElement));
         } catch (NoSuchElementException ex) {
             log.error("waiter exception");
             log.error(ex.getMessage());
             throw ex;
         }
+        
+        return new ListOfProducts(productListContainer.findElement(By.className("product_list")));
     }
+
+    public int getNumberOfProductsFromColorMenuItems(final String item) {
+        return Integer.parseInt(colorMenuContainer.findElement(By.partialLinkText(item)).findElement(By.tagName("span")).getText().replace("(", "").replace(")", ""));
+    }
+    
 
 }
