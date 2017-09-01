@@ -20,7 +20,7 @@ import com.tasks.task15.pages.WomenCategoryPage;
 
 public class Task1 {
     private WebDriver chromeDriver;
-    private final String exePath = "C:\\Users\\Tetiana\\Documents\\AutomationMentoringProgram\\";
+    private final String exePath = "D:\\AutomationMentoringProgram\\";
     private static final Logger log = LoggerFactory.getLogger(Task1.class);
     private static final List<String> expectedPriceArraySortingOrderAsc = Arrays.asList("16.40", "16.51", "26.00", "27.00", "28.98", "30.50", "50.99");
 
