@@ -35,31 +35,17 @@ public class Task1 {
     public void quitDriver() {
         chromeDriver.quit();
     }
-    /*
-     * @Test public void task1() { log.info("task15.1"); // GIVEN
-     * WomenCategoryPage womenCategoryPage =
-     * PageFactory.initElements(chromeDriver,
-     * StoreMainPage.class).open().clickMenuItem();
-     * 
-     * // WHEN List<String> actualPriceArraySortingOrderAsc =
-     * womenCategoryPage.sortBy("Price: Lowest first").getListOfPrices();
-     * 
-     * // THEN assertThat(actualPriceArraySortingOrderAsc,
-     * is(expectedPriceArraySortingOrderAsc)); }
-     */
 
     @Test
-    public void task2() {
-        log.info("task15.2");
-        // GIVEN
-        WomenCategoryPage womenCategoryPage = PageFactory.initElements(chromeDriver, StoreMainPage.class).open().clickMenuItem();
+    public void task1() {
+        log.info("task15.1"); // GIVEN
+        WomenCategoryPage womenCategoryPage = PageFactory.initElements(chromeDriver, StoreMainPage.class).open().navigateWomanCategoryPage();
 
         // WHEN
-        int expectedNumberOfProductsIntoContainer = womenCategoryPage.clickOnColorMenuItem("Orange").getSize();
-        int actualNumberOfProductsInColorMenu = womenCategoryPage.getNumberOfProductsFromColorMenuItems("Orange");
+        List<String> actualPriceArraySortingOrderAsc = womenCategoryPage.sortBy("Price: Lowest first").getListOfPrices();
 
         // THEN
-        assertThat(actualNumberOfProductsInColorMenu, is(expectedNumberOfProductsIntoContainer));
+        assertThat(actualPriceArraySortingOrderAsc, is(expectedPriceArraySortingOrderAsc));
     }
 
 }
