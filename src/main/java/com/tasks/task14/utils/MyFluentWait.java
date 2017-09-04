@@ -9,9 +9,7 @@ import org.openqa.selenium.support.ui.Wait;
 public class MyFluentWait {
 
     public static Wait<WebDriver> wait(WebDriver driver) {
-        FluentWait<WebDriver> wait = new FluentWait<WebDriver>(driver);
-        wait.withTimeout(15, TimeUnit.SECONDS).pollingEvery(500, TimeUnit.MILLISECONDS);
-        return wait;
+        return new FluentWait<WebDriver>(driver).withTimeout(15, TimeUnit.SECONDS).pollingEvery(50, TimeUnit.MILLISECONDS);
     }
 
 }

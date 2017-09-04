@@ -10,8 +10,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class ListOfProducts {
-    private WebElement productListContainer;
-    private List<ProductPageElement> listOfProducts = new ArrayList<ProductPageElement>();;
+    private final WebElement productListContainer;
+    private final List<ProductPageElement> listOfProducts = new ArrayList<ProductPageElement>();;
     private static final Logger log = LoggerFactory.getLogger(ListOfProducts.class);
 
     public ListOfProducts(WebElement productListContainer) {
@@ -38,26 +38,26 @@ public class ListOfProducts {
     }
 
     private void fillProductList() {
-    	List<WebElement> tempListOfProducts = new ArrayList<WebElement>();
-    	tempListOfProducts = productListContainer.findElements(By.className("right-block"));
-    	
-    	for(WebElement elem : tempListOfProducts){
-    		listOfProducts.add(new ProductPageElement(getProductName(elem), getPrice(elem), getListOfColors(elem)));
-    		log.info("name: {}, price {}, colors {}", getProductName(elem), getPrice(elem), getListOfColors(elem));
-    	}   
+        List<WebElement> tempListOfProducts = new ArrayList<WebElement>();
+        tempListOfProducts = productListContainer.findElements(By.className("right-block"));
+
+        for (WebElement elem : tempListOfProducts) {
+            listOfProducts.add(new ProductPageElement(getProductName(elem), getPrice(elem), getListOfColors(elem)));
+            log.info("name: {}, price {}, colors {}", getProductName(elem), getPrice(elem), getListOfColors(elem));
+        }
     }
-    
-    public List<String> getListOfPrices(){
-    	List<String> prices = new ArrayList<String>();
-    	
-    	for (ProductPageElement pr : listOfProducts){
-    		prices.add(pr.getPrice());
-    	}
-    	
-    	return prices;
+
+    public List<String> getListOfPrices() {
+        List<String> prices = new ArrayList<String>();
+
+        for (ProductPageElement pr : listOfProducts) {
+            prices.add(pr.getPrice());
+        }
+
+        return prices;
     }
-    
-    public int getSize(){
-    	return listOfProducts.size();
+
+    public int getSize() {
+        return listOfProducts.size();
     }
 }
