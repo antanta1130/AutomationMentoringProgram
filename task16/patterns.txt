@@ -1,0 +1,10 @@
+1. Prototype
+2. Decorator 
+3. прокси
+4. Decorator
+5. Memento
+6. observer
+7. абстрактная фабрика 
+8. State
+9. Стратегия, адаптер 
+10. Composit
